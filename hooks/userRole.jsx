@@ -1,5 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
-import useAuth from "./useAuth";
+"use client";
+
+import { useQuery } from "react-query";
+import useAuth from "../hooks/useAuth";
 import useAxiosSecure from "./useAxiosSecure";
 
 const userRole = () => {

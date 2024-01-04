@@ -1,14 +1,14 @@
+"use client";
 import { useEffect } from "react";
 import axios from "axios";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
+
 import { AuthContext } from "../providers/AuthProvider";
 
 const useAxiosSecure = () => {
   const { logOut } = useContext(AuthContext);
-
-  const navigate = useNavigate();
-
+  const router = useRouter();
   const axiosSecure = axios.create({
     baseURL: "http://localhost:5000",
   });
@@ -30,7 +30,7 @@ const useAxiosSecure = () => {
           (error.response.status === 401 || error.response.status === 403)
         ) {
           await logOut();
-          navigate("/login");
+          router.push("/login");
         }
         return Promise.reject(error);
       }

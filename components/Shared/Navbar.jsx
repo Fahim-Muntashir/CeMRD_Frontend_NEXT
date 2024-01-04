@@ -1,3 +1,4 @@
+"use client";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import Logo from "/public/Images/logo.png";
 
