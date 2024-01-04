@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "../globals.css";
+import Footer from "../../components/Shared/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <p className="">amar shonar bangla i lvoe yoyu</p>
         {children}
+        <Footer></Footer>
       </body>
     </html>
   );
