@@ -1,10 +1,11 @@
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
-import Logo from "../../../public/Images/logo.png";
-import { Link } from "react-router-dom";
+import Logo from "/public/Images/logo.png";
+
 import useAuth from "../../hooks/useAuth";
 import { RxAvatar } from "react-icons/rx";
 import { IoLogOut } from "react-icons/io5";
 import userRole from "../../hooks/userRole";
+import Link from "next/link";
 
 const Nav = () => {
   const { user, logOut } = useAuth();
