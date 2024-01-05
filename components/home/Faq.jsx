@@ -1,18 +1,13 @@
 import React from "react";
-import Container from "../shared/Container";
-
+import Container from "../Shared/Container";
+import CommonHeading from "../Shared/CommonHeading";
 const Faq = () => {
   return (
     <Container>
       <div>
         <section className="dark:bg-gray-800 dark:text-gray-100">
           <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
-            <p className="p-2 text-sm font-medium tracki text-center uppercase">
-              How it works
-            </p>
-            <h2 className="mb-12 text-4xl font-bold leadi text-center sm:text-5xl">
-              Frequently Asked Questions
-            </h2>
+            <CommonHeading></CommonHeading>
             <div className="flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 dark:divide-gray-700">
               <details>
                 <summary className="py-2 outline-none cursor-pointer focus:underline">
