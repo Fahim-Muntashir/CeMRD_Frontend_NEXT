@@ -1,12 +1,13 @@
 "use client";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
-import Logo from "/public/Images/logo.png";
-
-import useAuth from "../../hooks/useAuth";
+import Logo from "../../public/Images/logo.png";
+// import useAuth from "../../hooks/useAuth";
 import { RxAvatar } from "react-icons/rx";
 import { IoLogOut } from "react-icons/io5";
 import userRole from "../../hooks/userRole";
 import Link from "next/link";
+import useAuth from "../../hooks/useAuth";
+import Image from "next/image";
 
 const Nav = () => {
   const { user, logOut } = useAuth();
@@ -31,7 +32,7 @@ const Nav = () => {
       className="fixed xl:px-20 md:px-10 sm:px-2 px-4 w-full top-0 z-50 bg-white shadow-md"
     >
       <Navbar.Brand href="/">
-        <img src={Logo} width={200} height={500} alt="Picture of the author" />
+        <Image src={Logo} width={200} />{" "}
       </Navbar.Brand>
       <div className="flex md:order-2">
         {user ? (
@@ -77,12 +78,9 @@ const Nav = () => {
             </button>
           </Dropdown>
         ) : (
-          <Link
-            to="login"
-            className="bg-primary text-white font-bold text-2xl px-20 py-4"
-          >
-            Login
-          </Link>
+          <button className="mt-1 w-full bg-[#1c1748] px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-blue-900 sm:mt-0 sm:w-auto sm:shrink-0">
+            Sign Up
+          </button>
         )}
 
         <Navbar.Toggle />
