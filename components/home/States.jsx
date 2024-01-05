@@ -1,6 +1,5 @@
 import React from "react";
 import Container from "../Shared/Container";
-
 const States = () => {
   return (
     <Container>
