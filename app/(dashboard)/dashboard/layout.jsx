@@ -31,9 +31,9 @@ export default function DashboardLayout({ children }) {
         <QueryClientProvider client={queryClient}>
           <div>
             <aside class="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
-              <a href="/" class="mx-auto">
+              <Link href="/" class="mx-auto">
                 <Image width={140} src={logo} alt="" />
-              </a>
+              </Link>
 
               <div class="flex flex-col items-center mt-6 -mx-2">
                 <Image
