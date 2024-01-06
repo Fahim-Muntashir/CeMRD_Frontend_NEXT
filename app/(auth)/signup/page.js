@@ -4,16 +4,40 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import Logo from "../../../public/Images/logo.png";
 import Image from "next/image";
+import useAuth from "../../../hooks/useAuth";
 const page = () => {
+  const { createUser, profileUpdate, googleLogin } = useAuth();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleRegistration = () => {
-    console.log(name, email, password);
-    toast.success("Successfully Sign Up!");
+  const handleRegistration = async () => {
     event.preventDefault();
-  };
+    const toastId = toast.loading("Loading");
+    try {
+      const user = await createUser(email, password);
+      await profileUpdate({
+        displayName: name,
+      });
 
+      toast.dismiss(toastId);
+      toast.success("Successfully Sign Up!");
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message || "user not Sign Uped");
+    }
+  };
+  const handleGoogleLogin = async () => {
+    const toastId = toast.loading("Loading");
+    try {
+      const user = await googleLogin();
+      toast.dismiss(toastId);
+      toast.success("Successfully Sign In!");
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message || "user not Sign In");
+    }
+  };
   return (
     <div>
       {/* HELLO TESTn */}
@@ -102,6 +126,7 @@ const page = () => {
             <hr class="my-6 border-gray-300 w-full" />
 
             <button
+              onClick={handleGoogleLogin}
               type="button"
               class="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300"
             >
