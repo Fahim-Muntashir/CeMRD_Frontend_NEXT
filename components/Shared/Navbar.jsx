@@ -11,7 +11,7 @@ import Image from "next/image";
 import toast from "react-hot-toast";
 
 const Nav = () => {
-  const { user, logOut } = useAuth();
+  const { user, logout } = useAuth();
 
   const { uid, displayName, email } = user || {};
 
@@ -22,7 +22,7 @@ const Nav = () => {
   console.log(normalUser);
 
   const handleLogOut = async () => {
-    await logOut();
+    await logout();
     toast
       .success("Logout Successfully!")
       .then(() => {
@@ -57,18 +57,18 @@ const Nav = () => {
             <Dropdown.Header>
               <span className="block text-sm">{displayName}</span>
               <span className="block truncate text-sm font-medium">
-                {user?.email}
+                {email}
               </span>
             </Dropdown.Header>
 
             {normalUser || (
               <>
                 <Dropdown.Item>
-                  <Link to="dashboard">DashBoard</Link>
+                  <Link href="dashboard">DashBoard</Link>
                 </Dropdown.Item>
 
                 <Dropdown.Item>
-                  <Link to="dashboard/profile">Profile</Link>
+                  <Link href="dashboard/profile">Profile</Link>
                 </Dropdown.Item>
               </>
             )}

@@ -5,12 +5,15 @@ import toast from "react-hot-toast";
 import Logo from "../../../public/Images/logo.png";
 import Image from "next/image";
 import useAuth from "../../../hooks/useAuth";
+import { useRouter } from "next/navigation";
 const page = () => {
   const { createUser, profileUpdate, googleLogin } = useAuth();
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const router = useRouter();
+
   const handleRegistration = async () => {
     event.preventDefault();
     const toastId = toast.loading("Loading");
@@ -22,6 +25,9 @@ const page = () => {
 
       toast.dismiss(toastId);
       toast.success("Successfully Sign Up!");
+      if (user) {
+        router.push("/", { scroll: false });
+      }
     } catch (error) {
       console.log(error);
       toast.error(error.message || "user not Sign Uped");
@@ -33,6 +39,9 @@ const page = () => {
       const user = await googleLogin();
       toast.dismiss(toastId);
       toast.success("Successfully Sign In!");
+      if (user) {
+        router.push("/", { scroll: false });
+      }
     } catch (error) {
       console.log(error);
       toast.error(error.message || "user not Sign In");
@@ -55,7 +64,9 @@ const page = () => {
       flex items-center justify-center"
         >
           <div class="w-full h-100">
-            <Image className="mx-auto" width={200} src={Logo}></Image>
+            <Link href="/">
+              <Image className="mx-auto" width={200} src={Logo}></Image>
+            </Link>
             <h1 class="text-xl md:text-2xl font-bold leading-tight mt-4">
               Log in to your account
             </h1>
