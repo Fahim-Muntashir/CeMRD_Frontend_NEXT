@@ -1,7 +1,21 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 const page = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleRegistration = () => {
+    event.preventDefault();
+    Swal.fire({
+      title: "Good job!",
+      text: "You clicked the button!",
+      icon: "success",
+    });
+  };
+
   return (
     <div>
       <section class="flex flex-col md:flex-row h-screen items-center">
@@ -22,17 +36,18 @@ const page = () => {
               Log in to your account
             </h1>
 
-            <form class="mt-6" action="#" method="POST">
+            <form class="mt-6" action="#" onSubmit={handleRegistration}>
               <div>
                 <label class="block text-gray-700">Name </label>
                 <input
-                  type="email"
                   name=""
-                  id=""
-                  placeholder="Enter name Address"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Enter Your Name"
                   class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
-                  autofocus
-                  autocomplete
+                  autoFocus
+                  autoComplete
                   required
                 />
               </div>
@@ -40,13 +55,15 @@ const page = () => {
                 <label class="block text-gray-700">Email Address</label>
                 <input
                   type="email"
-                  name=""
-                  id=""
+                  name="email"
+                  id="email"
                   placeholder="Enter Email Address"
                   class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
-                  autofocus
-                  autocomplete
+                  autoFocus
+                  autoComplete
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
@@ -54,12 +71,14 @@ const page = () => {
                 <label class="block text-gray-700">Password</label>
                 <input
                   type="password"
-                  name=""
-                  id=""
+                  name="password"
+                  id="password"
                   placeholder="Enter Password"
                   minlength="6"
                   class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
               focus:bg-white focus:outline-none"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
               </div>
@@ -73,12 +92,11 @@ const page = () => {
                 </a>
               </div>
 
-              <button
-                type="button"
+              <input
+                type="submit"
                 className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300"
-              >
-                Log In
-              </button>
+                value="Login"
+              />
             </form>
 
             <hr class="my-6 border-gray-300 w-full" />

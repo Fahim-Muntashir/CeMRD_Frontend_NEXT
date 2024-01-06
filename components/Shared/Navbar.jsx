@@ -78,9 +78,20 @@ const Nav = () => {
             </button>
           </Dropdown>
         ) : (
-          <button className="mt-1 w-full bg-[#1c1748] px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-blue-900 sm:mt-0 sm:w-auto sm:shrink-0">
-            Sign Up
-          </button>
+          <>
+            <Link
+              className="mt-1 w-full bg-[white] px-6 py-3 text-sm font-bold uppercase tracking-wide text-black hover:text-white transition-none hover:bg-blue-900 sm:mt-0 sm:w-auto sm:shrink-0"
+              href="/login"
+            >
+              Login
+            </Link>
+            <Link
+              className="mt-1 w-full bg-[#1c1748] px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-blue-900 sm:mt-0 sm:w-auto sm:shrink-0"
+              href="/signup"
+            >
+              Sign Up
+            </Link>
+          </>
         )}
 
         <Navbar.Toggle />
@@ -91,7 +102,7 @@ const Nav = () => {
         </Navbar.Link>
         <Navbar.Link href="about">About</Navbar.Link>
         <Navbar.Link href="events">Events</Navbar.Link>
-        <Navbar.Link href="login">login</Navbar.Link>
+
         <Navbar.Link href="research">Research</Navbar.Link>
         <Navbar.Link href="team">Team</Navbar.Link>
         <Navbar.Link href="blog">Blog</Navbar.Link>
