@@ -18,6 +18,7 @@ const page = () => {
 
   return (
     <div>
+      {/* HELLO TEST */}
       <section class="flex flex-col md:flex-row h-screen items-center">
         <div class="bg-indigo-600 hidden lg:block w-full md:w-2/2 xl:w-2/3 h-screen">
           <img
@@ -36,7 +37,7 @@ const page = () => {
               Log in to your account
             </h1>
 
-            <form class="mt-6" action="#" onSubmit={handleRegistration}>
+            <form class="mt-6" onSubmit={handleRegistration}>
               <div>
                 <label class="block text-gray-700">Name </label>
                 <input
