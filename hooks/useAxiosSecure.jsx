@@ -1,13 +1,11 @@
 "use client";
 import { useEffect } from "react";
 import axios from "axios";
-import { useContext } from "react";
 import { useRouter } from "next/navigation";
-
-import { AuthContext } from "../providers/AuthProvider";
+import useAuth from "./useAuth";
 
 const useAxiosSecure = () => {
-  const { logOut } = useContext(AuthContext);
+  const { user, logOut } = useAuth();
   const router = useRouter();
   const axiosSecure = axios.create({
     baseURL: "http://localhost:5000",

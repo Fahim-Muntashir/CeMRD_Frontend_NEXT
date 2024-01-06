@@ -8,17 +8,23 @@ import userRole from "../../hooks/userRole";
 import Link from "next/link";
 import useAuth from "../../hooks/useAuth";
 import Image from "next/image";
+import toast from "react-hot-toast";
 
 const Nav = () => {
   const { user, logOut } = useAuth();
+
+  const { uid, displayName, email } = user || {};
+
   const [role] = userRole();
 
   const normalUser = role === "user";
 
   console.log(normalUser);
 
-  const handleLogOut = () => {
-    logOut()
+  const handleLogOut = async () => {
+    await logOut();
+    toast
+      .success("Logout Successfully!")
       .then(() => {
         localStorage.removeItem("cemrd-access-token");
       })
@@ -35,7 +41,7 @@ const Nav = () => {
         <Image src={Logo} width={200} />{" "}
       </Navbar.Brand>
       <div className="flex md:order-2">
-        {user ? (
+        {uid ? (
           <Dropdown
             arrowIcon={false}
             inline
@@ -49,7 +55,7 @@ const Nav = () => {
             }
           >
             <Dropdown.Header>
-              <span className="block text-sm">{user?.displayName}</span>
+              <span className="block text-sm">{displayName}</span>
               <span className="block truncate text-sm font-medium">
                 {user?.email}
               </span>

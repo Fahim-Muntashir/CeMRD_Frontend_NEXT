@@ -1,24 +1,21 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const page = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleRegistration = () => {
+    console.log(name, email, password);
+    toast.success("Successfully Sign Up!");
     event.preventDefault();
-    Swal.fire({
-      title: "Good job!",
-      text: "You clicked the button!",
-      icon: "success",
-    });
   };
 
   return (
     <div>
-      {/* HELLO TEST */}
+      {/* HELLO TESTn */}
       <section class="flex flex-col md:flex-row h-screen items-center">
         <div class="bg-indigo-600 hidden lg:block w-full md:w-2/2 xl:w-2/3 h-screen">
           <img
@@ -96,7 +93,7 @@ const page = () => {
               <input
                 type="submit"
                 className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300"
-                value="Login"
+                value="Sign Up"
               />
             </form>
 

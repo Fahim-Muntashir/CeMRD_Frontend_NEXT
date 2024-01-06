@@ -1,13 +1,24 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 const page = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleLogin = () => {
+    event.preventDefault();
+    console.log(email, password);
+    toast.success("Successfully Sign In!");
+  };
+
   return (
     <div>
+      {/* HELLO TESTn */}
       <section class="flex flex-col md:flex-row h-screen items-center">
         <div class="bg-indigo-600 hidden lg:block w-full md:w-2/2 xl:w-2/3 h-screen">
           <img
-            src="https://images.unsplash.com/photo-1579154392128-bf8c7ebee541?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAzfHxyZXNlYXJjaHxlbnwwfHwwfHx8MA%3D%3D"
+            src="https://images.unsplash.com/photo-1579165466991-467135ad3110?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA0fHxyZXNlYXJjaHxlbnwwfHwwfHx8MA%3D%3D"
             alt=""
             class="w-full h-full object-cover"
           />
@@ -22,18 +33,20 @@ const page = () => {
               Log in to your account
             </h1>
 
-            <form class="mt-6" action="#" method="POST">
+            <form class="mt-6" onSubmit={handleLogin}>
               <div>
                 <label class="block text-gray-700">Email Address</label>
                 <input
                   type="email"
-                  name=""
-                  id=""
+                  name="email"
+                  id="email"
                   placeholder="Enter Email Address"
                   class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
                   autoFocus
                   autoComplete
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
@@ -41,12 +54,14 @@ const page = () => {
                 <label class="block text-gray-700">Password</label>
                 <input
                   type="password"
-                  name=""
-                  id=""
+                  name="password"
+                  id="password"
                   placeholder="Enter Password"
                   minlength="6"
                   class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
               focus:bg-white focus:outline-none"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
               </div>
@@ -60,12 +75,11 @@ const page = () => {
                 </a>
               </div>
 
-              <button
-                type="button"
+              <input
+                type="submit"
                 className="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300"
-              >
-                Log In
-              </button>
+                value="Login"
+              />
             </form>
 
             <hr class="my-6 border-gray-300 w-full" />
@@ -116,12 +130,12 @@ const page = () => {
             </button>
 
             <p class="mt-8">
-              Need an account?{" "}
+              You dont have any Account!
               <Link
-                href="signup"
+                href="/login"
                 class="text-blue-500 hover:text-blue-700 font-semibold"
               >
-                Create an account
+                Sign Up
               </Link>
             </p>
           </div>

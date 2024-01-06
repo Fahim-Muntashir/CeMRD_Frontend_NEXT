@@ -5,13 +5,16 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCo_a4U-V7XUPF9iKrb7fITaoA0gHbgypk",
-  authDomain: "cemrd-c79a2.firebaseapp.com",
-  projectId: "cemrd-c79a2",
-  storageBucket: "cemrd-c79a2.appspot.com",
-  messagingSenderId: "1099086946431",
-  appId: "1:1099086946431:web:13cc580c4c743003c6df4a",
+  apiKey: process.env.NEXT_PUBLIC_apiKey,
+  authDomain: process.env.NEXT_PUBLIC_authDomain,
+  projectId: process.env.NEXT_PUBLIC_projectId,
+  storageBucket: process.env.NEXT_PUBLIC_storageBucket,
+  messagingSenderId: process.env.NEXT_PUBLIC_messagingSenderId,
+  appId: process.env.NEXT_PUBLIC_appId,
 };
 
+// Use firebaseConfig in your Firebase initialization
+
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+export default app;

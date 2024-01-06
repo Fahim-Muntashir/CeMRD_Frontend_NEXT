@@ -5,6 +5,7 @@ import Footer from "../../components/Shared/Footer";
 import Navbar from "../../components/Shared/Navbar";
 import AuthProvider from "../../providers/AuthProvider";
 import { QueryClient, QueryClientProvider } from "react-query";
+import Toaster from "../../components/Shared/Toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
           </QueryClientProvider>
         </AuthProvider>
         <Footer></Footer>
+        <Toaster></Toaster>
       </body>
     </html>
   );
