@@ -2,7 +2,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import toast from "react-hot-toast";
-
+import Logo from "../../../public/Images/logo.png";
+import Image from "next/image";
 const page = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -30,7 +31,8 @@ const page = () => {
       flex items-center justify-center"
         >
           <div class="w-full h-100">
-            <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">
+            <Image className="mx-auto" width={200} src={Logo}></Image>
+            <h1 class="text-xl md:text-2xl font-bold leading-tight mt-4">
               Log in to your account
             </h1>
 

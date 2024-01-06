@@ -1,15 +1,39 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import Logo from "../../../public/Images/logo.png";
+import useAuth from "../../../hooks/useAuth";
 
 const page = () => {
+  const { signIn, googleLogin } = useAuth();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleLogin = () => {
+  const handleLogin = async () => {
     event.preventDefault();
-    console.log(email, password);
-    toast.success("Successfully Sign In!");
+    const toastId = toast.loading("Loading");
+    try {
+      const user = await signIn(email, password);
+      toast.dismiss(toastId);
+      toast.success("Successfully Sign In!");
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message || "user not Sign In");
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    const toastId = toast.loading("Loading");
+    try {
+      const user = await googleLogin();
+      toast.dismiss(toastId);
+      toast.success("Successfully Sign In!");
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message || "user not Sign In");
+    }
   };
 
   return (
@@ -29,10 +53,12 @@ const page = () => {
       flex items-center justify-center"
         >
           <div class="w-full h-100">
-            <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">
-              Log in to your account
-            </h1>
-
+            <div>
+              <Image className="mx-auto" width={200} src={Logo}></Image>
+              <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">
+                Log in to your account
+              </h1>
+            </div>
             <form class="mt-6" onSubmit={handleLogin}>
               <div>
                 <label class="block text-gray-700">Email Address</label>
@@ -85,6 +111,7 @@ const page = () => {
             <hr class="my-6 border-gray-300 w-full" />
 
             <button
+              onClick={handleGoogleLogin}
               type="button"
               class="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300"
             >
@@ -132,7 +159,7 @@ const page = () => {
             <p class="mt-8">
               You dont have any Account!
               <Link
-                href="/login"
+                href="/signup"
                 class="text-blue-500 hover:text-blue-700 font-semibold"
               >
                 Sign Up
