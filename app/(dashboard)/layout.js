@@ -1,14 +1,14 @@
 "use client";
-import logo from "../../../public/Images/logo.png";
-import "../../globals.css";
+import logo from "../../public/Images/logo.png";
+import "../globals.css";
 import { FaBlogger } from "react-icons/fa";
 import { GiArchiveResearch } from "react-icons/gi";
-import useAuth from "../../../hooks/useAuth";
-import userRole from "../../../hooks/userRole";
+import useAuth from "../../hooks/useAuth";
+import userRole from "../../hooks/userRole";
 import { FaUsers } from "react-icons/fa";
 import Link from "next/link";
 import { QueryClient, QueryClientProvider } from "react-query";
-import AuthProvider from "../../../providers/AuthProvider";
+import AuthProvider from "../../providers/AuthProvider";
 import Image from "next/image";
 export default function DashboardLayout({ children }) {
   // offset navbar height
@@ -56,7 +56,7 @@ export default function DashboardLayout({ children }) {
                   {" "}
                   <Link
                     class="flex items-center bg-gray-100  px-4 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                    href="/dashboard/myaccount"
+                    href="/dashboard/profile"
                   >
                     <svg
                       class="w-5 h-5"
