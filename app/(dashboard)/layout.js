@@ -23,7 +23,7 @@ export default function DashboardLayout({ children }) {
 
   const user = null;
   const role = "herl";
-  const isAdmin = null;
+  const isAdmin = true;
 
   return (
     <div className="flex ">
@@ -110,6 +110,22 @@ export default function DashboardLayout({ children }) {
                         <GiArchiveResearch />
 
                         <span class="mx-4 font-medium">Manage Research</span>
+                      </Link>
+                      <Link
+                        class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                        href="/dashboard/manageresearch"
+                      >
+                        <GiArchiveResearch />
+
+                        <span class="mx-4 font-medium">Add News</span>
+                      </Link>
+                      <Link
+                        class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                        href="/dashboard/manageresearch"
+                      >
+                        <GiArchiveResearch />
+
+                        <span class="mx-4 font-medium">Add Adviser</span>
                       </Link>
                     </>
                   )}
