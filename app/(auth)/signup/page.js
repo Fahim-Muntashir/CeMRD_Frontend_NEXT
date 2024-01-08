@@ -22,7 +22,16 @@ const page = () => {
       await profileUpdate({
         displayName: name,
       });
-
+      fetch("http://localhost:5000/api/users/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          name,
+        }),
+      });
       toast.dismiss(toastId);
       toast.success("Successfully Sign Up!");
       if (user) {

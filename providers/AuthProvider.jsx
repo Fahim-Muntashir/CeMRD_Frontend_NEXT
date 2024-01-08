@@ -1,4 +1,5 @@
 "use client";
+import axios from "axios";
 import AuthContext from "../contexts/AuthContext";
 import auth, { googleProvider } from "../firebase/firebase.auth";
 
@@ -43,8 +44,22 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      console.log(currentUser);
+      // get and set token
+      if (currentUser) {
+        axios
+          .get(`http://localhost:5000/api/auth/jwt/${currentUser.email}`, {
+            email: currentUser.email,
+          })
+          .then((data) => {
+            console.log(data);
+            localStorage.setItem("access-token", data.data.data.token);
+          });
+      } else {
+        localStorage.removeItem("access-token");
+      }
       setLoading(false);
     });
 

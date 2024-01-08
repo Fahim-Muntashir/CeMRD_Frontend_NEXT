@@ -1,4 +1,13 @@
+"use client";
+import useAuth from "../../../../hooks/useAuth";
+
 const page = () => {
+  const { user, logout } = useAuth();
+
+  const { uid, displayName, email } = user || {};
+
+  console.log("object", displayName);
+
   return (
     <div>
       <section class=" py-1 bg-blueGray-50">
@@ -33,7 +42,7 @@ const page = () => {
                       <input
                         type="text"
                         class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        // value={user.displayName}
+                        value={displayName}
                       />
                     </div>
                   </div>
@@ -48,7 +57,7 @@ const page = () => {
                       <input
                         type="email"
                         class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        // value={user.email}
+                        value={email}
                       />
                     </div>
                   </div>
