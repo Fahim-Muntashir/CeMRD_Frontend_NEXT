@@ -64,7 +64,7 @@ const Nav = () => {
             {normalUser || (
               <>
                 <Dropdown.Item>
-                  <Link href="dashboard">DashBoard</Link>
+                  <Link href="dashboard/profile">DashBoard</Link>
                 </Dropdown.Item>
 
                 <Dropdown.Item>
