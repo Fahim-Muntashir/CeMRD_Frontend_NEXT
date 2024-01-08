@@ -2,7 +2,13 @@
 import logo from "../../public/Images/logo.png";
 import "../globals.css";
 import { FaBlogger } from "react-icons/fa";
-import { GiArchiveResearch } from "react-icons/gi";
+import { GiArchiveResearch, GiNewspaper } from "react-icons/gi";
+import { RiCalendarEventFill } from "react-icons/ri";
+import { AiOutlineNotification } from "react-icons/ai";
+
+import { MdNaturePeople } from "react-icons/md";
+import { FaPeopleRoof } from "react-icons/fa6";
+
 import useAuth from "../../hooks/useAuth";
 import userRole from "../../hooks/userRole";
 import { FaUsers } from "react-icons/fa";
@@ -113,11 +119,12 @@ export default function DashboardLayout({ children }) {
                               Manage Research
                             </span>
                           </Link>
+                          <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
                           <Link
                             class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                            href="/dashboard/manageresearch"
+                            href="/dashboard/addnews"
                           >
-                            <GiArchiveResearch />
+                            <GiNewspaper />
 
                             <span class="mx-4 font-medium">Add News</span>
                           </Link>
@@ -125,7 +132,7 @@ export default function DashboardLayout({ children }) {
                             class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
                             href="/dashboard/manageresearch"
                           >
-                            <GiArchiveResearch />
+                            <MdNaturePeople />
 
                             <span class="mx-4 font-medium">Add Adviser</span>
                           </Link>
@@ -133,7 +140,7 @@ export default function DashboardLayout({ children }) {
                             class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
                             href="/dashboard/manageresearch"
                           >
-                            <GiArchiveResearch />
+                            <FaPeopleRoof />
 
                             <span class="mx-4 font-medium">Add Member</span>
                           </Link>
@@ -141,7 +148,7 @@ export default function DashboardLayout({ children }) {
                             class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
                             href="/dashboard/manageresearch"
                           >
-                            <GiArchiveResearch />
+                            <RiCalendarEventFill />
 
                             <span class="mx-4 font-medium">Add Event</span>
                           </Link>
@@ -149,7 +156,7 @@ export default function DashboardLayout({ children }) {
                             class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
                             href="/dashboard/manageresearch"
                           >
-                            <GiArchiveResearch />
+                            <AiOutlineNotification />
 
                             <span class="mx-4 font-medium">Add Noticed</span>
                           </Link>
