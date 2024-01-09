@@ -16,6 +16,7 @@ import Link from "next/link";
 import { QueryClient, QueryClientProvider } from "react-query";
 import AuthProvider from "../../providers/AuthProvider";
 import Image from "next/image";
+import { Toaster } from "react-hot-toast";
 export default function DashboardLayout({ children }) {
   // offset navbar height
   // TODO:load data from the server to thava dynamic isAdmin based on data
@@ -33,6 +34,8 @@ export default function DashboardLayout({ children }) {
     <html lang="en">
       <body>
         <div className="flex ">
+          {" "}
+          <Toaster></Toaster>
           <AuthProvider>
             <QueryClientProvider client={queryClient}>
               <div>
