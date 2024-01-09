@@ -4,9 +4,17 @@ import useAuth from "../../../../hooks/useAuth";
 import toast from "react-hot-toast";
 
 const page = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-blue-700 mx-auto mt-40"></div>
+    );
+  }
 
   const { uid, displayName: initialDisplayName, email } = user || {};
+
+  const [userData, setUserData] = useState({});
 
   const [displayName, setDisplayName] = useState(initialDisplayName);
   const [linkedin, setLinkedin] = useState("");
@@ -23,9 +31,12 @@ const page = () => {
 
       if (response.ok) {
         const data = await response.json();
-        setProfileData(data);
-        console.log(data);
-        // Assuming the actual data is in the "data" property
+        console.log(data.data);
+        setUserData(data.data);
+        setLinkedin(data.data.linkedin); // Set the linkedin state here
+        setGoogleScholar(data.data.googleScholar); // Set the linkedin state here
+        setAddress(data.data.address); // Set the linkedin state here
+        setAbout(data.data.about); // Set the linkedin state here
         console.log("Profile data fetched successfully");
       } else {
         console.error("Failed to fetch profile data");
@@ -34,7 +45,6 @@ const page = () => {
       console.error("Error fetching profile data", error);
     }
   };
-  getMemberProfileData();
 
   const handleUpdateProfile = async () => {
     try {
@@ -67,9 +77,12 @@ const page = () => {
   };
 
   const editAccount = () => {
+    getMemberProfileData();
     toast.success("Now Update your profile with new data");
     setEditMode(true);
   };
+
+  // user data is
 
   return (
     <div>
@@ -214,6 +227,7 @@ const page = () => {
                         rows="10"
                         readOnly={!isEditMode}
                         maxLength="400"
+                        value={about}
                         // Add value and onChange props if you want to track changes
                       >
                         Default text goes here...
