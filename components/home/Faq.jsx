@@ -7,7 +7,12 @@ const Faq = () => {
       <div>
         <section className="dark:bg-gray-800 dark:text-gray-100">
           <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
-            <CommonHeading></CommonHeading>
+            <CommonHeading
+              title={"Frequently Ask Questions"}
+              description={
+                "Explore quick and clear answers to commonly asked questions across diverse topics. Simplify your quest for information with our concise and informative Frequently Asked Questions section."
+              }
+            ></CommonHeading>
             <div className="flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 dark:divide-gray-700">
               <details>
                 <summary className="py-2 outline-none cursor-pointer focus:underline">

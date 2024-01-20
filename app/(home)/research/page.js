@@ -1,9 +1,10 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useQuery } from "react-query";
 
 const Research = () => {
-  // const navigate = useNavigate();
+  const router = useRouter();
 
   const { isPending, error, data, refetch } = useQuery({
     queryKey: ["researches"],
@@ -19,10 +20,10 @@ const Research = () => {
     },
   });
 
-  const handleViewDetails = (researchId) => {
-    console.log(researchId);
+  const handleViewDetails = (id) => {
+    console.log(id);
 
-    // navigate(`/research/${researchId}`);
+    router.push(`research/${id}`);
   };
 
   return (

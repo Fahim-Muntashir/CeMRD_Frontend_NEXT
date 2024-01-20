@@ -1,4 +1,4 @@
-const CommonHeading = () => {
+const CommonHeading = ({ title, description }) => {
   return (
     <div>
       <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
@@ -31,14 +31,10 @@ const CommonHeading = () => {
                 height="24"
               />
             </svg>
-            <span className="relative">Welcome</span>
           </span>{" "}
-          our talented team of professionals
+          {title}
         </h2>
-        <p className="text-base text-gray-700 md:text-lg">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque rem aperiam, eaque ipsa quae.
-        </p>
+        <p className="text-base text-gray-700 md:text-lg">{description}</p>
       </div>
     </div>
   );

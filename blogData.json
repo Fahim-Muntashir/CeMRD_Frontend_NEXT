@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Unlocking the Secrets of Quantum Computing",
+        "subtitle": "A Journey into the Quantum Realm",
+        "img1Link": "https://i.ytimg.com/vi/CALhqoHskuU/maxresdefault.jpg",
+        "description1": "Embark on a thrilling adventure as we explore the mind-bending world of quantum computing...",
+        "description2": "From qubits to superposition, we unravel the mysteries behind the next frontier in computational power...",
+        "published": true
+    },
+    {
+        "title": "The Rise of Augmented Reality in Education",
+        "subtitle": "Transforming Learning Experiences with AR",
+        "img1Link": "https://i.ytimg.com/vi/CALhqoHskuU/maxresdefault.jpg",
+        "description1": "Discover how augmented reality is revolutionizing education by creating immersive and interactive learning environments...",
+        "description2": "From virtual field trips to hands-on simulations, explore the future of education through the lens of AR...",
+        "published": true
+    },
+    {
+        "title": "Sustainable Technology: Building a Greener Future",
+        "subtitle": "Tech Innovations Driving Environmental Change",
+        "img1Link": "https://i.ytimg.com/vi/CALhqoHskuU/maxresdefault.jpg",
+        "description1": "Explore how technology is playing a pivotal role in addressing environmental challenges and building a sustainable future...",
+        "description2": "From renewable energy solutions to eco-friendly innovations, join us on a journey towards a greener and more sustainable world...",
+        "published": false
+    }
+]

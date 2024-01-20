@@ -1,10 +1,13 @@
+"use client";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Container from "../../../../components/shared/Container";
+
+import { useParams } from "next/navigation";
+import Container from "../../../../components/Shared/Container";
 
 const SingleResearch = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
+  console.log(id);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
