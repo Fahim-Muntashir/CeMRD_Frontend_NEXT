@@ -1,18 +1,25 @@
 "use client";
+import { useState } from "react";
 import { useMutation, useQuery } from "react-query";
 
 function ManageUser() {
   const token = localStorage.getItem("access-token");
+  const [searchInput, setSearchInput] = useState("");
 
   const { isPending, error, data, refetch } = useQuery({
-    queryKey: ["users"],
-    queryFn: async () => {
-      const res = await fetch("http://localhost:5000/api/users", {
+    queryKey: ["users", searchInput], // Include searchInput in the queryKey
+    queryFn: async (query) => {
+      const url = query
+        ? `http://localhost:5000/api/users?search=${query}`
+        : "http://localhost:5000/api/users";
+
+      const res = await fetch(url, {
         method: "GET",
         headers: {
           authorization: `${token}`,
         },
       });
+
       const responseData = await res.json();
       return responseData.data;
     },
@@ -48,6 +55,15 @@ function ManageUser() {
     },
   });
 
+  const sortedData = data
+    ? data.sort((a, b) =>
+        a.email === searchInput ? -1 : b.email === searchInput ? 1 : 0
+      )
+    : [];
+  const filteredData = data
+    ? data.filter((user) => user.email.includes(searchInput))
+    : [];
+
   return (
     <div className="overflow-x-auto">
       <div class="antialiased font-sans bg-gray-200">
@@ -58,7 +74,8 @@ function ManageUser() {
             </div>
             <div class="my-2 flex sm:flex-row flex-col">
               <div class="flex flex-row mb-1 sm:mb-0">
-                <div class="relative">
+                {/* Todo: implement searcing inactive active and pagination */}
+                {/* <div class="relative">
                   <select class="appearance-none h-full rounded-l border block w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                     <option>5</option>
                     <option>10</option>
@@ -74,6 +91,7 @@ function ManageUser() {
                     </svg>
                   </div>
                 </div>
+               
                 <div class="relative">
                   <select class="appearance-none h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500">
                     <option>All </option>
@@ -89,7 +107,7 @@ function ManageUser() {
                       <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                     </svg>
                   </div>
-                </div>
+                </div> */}
               </div>
               <div class="block relative">
                 <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
@@ -103,6 +121,8 @@ function ManageUser() {
                 <input
                   placeholder="Search"
                   class="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
                 />
               </div>
             </div>
@@ -129,7 +149,7 @@ function ManageUser() {
                     </tr>
                   </thead>
                   <tbody>
-                    {data?.map((user) => (
+                    {filteredData.map((user) => (
                       <tr key={user?._id}>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                           <div class="flex items-center">
@@ -167,7 +187,7 @@ function ManageUser() {
                                 aria-hidden
                                 class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
                               ></span>
-                              <span class="relative">Make Faculty</span>
+                              <span class="relative">Make Member</span>
                             </button>
                           </span>
                         </td>
