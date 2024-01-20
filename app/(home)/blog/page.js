@@ -57,7 +57,7 @@ const page = () => {
             {data?.map((blog) => (
               <Link
                 rel="noopener noreferrer"
-                href="#"
+                href={`/blog/${blog._id}`}
                 className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-900"
               >
                 <img
@@ -67,17 +67,12 @@ const page = () => {
                 />
                 <div className="p-6 space-y-2">
                   <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
-                    In usu laoreet repudiare legendos
+                    {blog.title}
                   </h3>
                   <span className="text-xs dark:text-gray-400">
                     January 21, 2021
                   </span>
-                  <p>
-                    Mei ex aliquid eleifend forensibus, quo ad dicta apeirian
-                    neglegentur, ex has tantas percipit perfecto. At per tempor
-                    albucius perfecto, ei probatus consulatu patrioque mea, ei
-                    vocent delicata indoctum pri.
-                  </p>
+                  <p>{blog.description1.slice(0, 120)}....</p>
                 </div>
               </Link>
             ))}
