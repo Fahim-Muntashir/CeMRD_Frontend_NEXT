@@ -2,9 +2,20 @@
 import { useState } from "react";
 import useAuth from "../../../../hooks/useAuth";
 import toast from "react-hot-toast";
-
 const page = () => {
   const { user, loading } = useAuth();
+
+  const img_hoisting_url = `https://api.imgbb.com/1/upload?expiration=600&key=${process.env.NEXT_PUBLIC_Image_Upload_Token}`;
+  // Move the useState hooks outside of the conditional block
+
+  const [imgUpload, setImgUpload] = useState(null);
+  const [userData, setUserData] = useState({});
+  const [displayName, setDisplayName] = useState("");
+  const [linkedin, setLinkedin] = useState("");
+  const [googleScholar, setGoogleScholar] = useState("");
+  const [address, setAddress] = useState("");
+  const [about, setAbout] = useState("");
+  const [isEditMode, setEditMode] = useState(false);
 
   if (loading) {
     return (
@@ -14,14 +25,7 @@ const page = () => {
 
   const { uid, displayName: initialDisplayName, email } = user || {};
 
-  const [userData, setUserData] = useState({});
-
-  const [displayName, setDisplayName] = useState(initialDisplayName);
-  const [linkedin, setLinkedin] = useState("");
-  const [googleScholar, setGoogleScholar] = useState("");
-  const [address, setAddress] = useState("");
-  const [about, setAbout] = useState("");
-  const [isEditMode, setEditMode] = useState(false);
+  // ... rest of your code
 
   const getMemberProfileData = async () => {
     try {
@@ -48,28 +52,50 @@ const page = () => {
 
   const handleUpdateProfile = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/member/updatememberprofile/${email}`, // Use email in the URL
-        {
-          method: "PUT", // Use PUT for updating
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            displayName,
-            linkedin,
-            googleScholar,
-            address,
-            about,
-          }),
-        }
-      );
+      // Step 3: Include the image upload logic
+      const imgFormData = new FormData();
+      if (imgUpload) {
+        imgFormData.append("image", imgUpload); // Ensure the field name is "image"
+        const imgUploadResponse = await fetch(img_hoisting_url, {
+          method: "POST",
+          body: imgFormData,
+        });
 
-      if (response.ok) {
-        console.log("Profile updated successfully");
-        toast.success("Profile Update With Sucessfully");
-      } else {
-        console.error("Failed to update profile");
+        if (imgUploadResponse.ok) {
+          const imgUploadData = await imgUploadResponse.json();
+          const imgUrl = imgUploadData.data.url;
+
+          // Fetch the existing profile data first
+          await getMemberProfileData();
+
+          // Include the imgUrl in the body of the profile update request
+          const response = await fetch(
+            `http://localhost:5000/api/member/updatememberprofile/${email}`,
+            {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                displayName,
+                linkedin,
+                googleScholar,
+                address,
+                about,
+                imgUrl, // Include imgUrl in the body
+              }),
+            }
+          );
+
+          if (response.ok) {
+            console.log("Profile updated successfully");
+            toast.success("Profile Update With Successfully");
+          } else {
+            console.error("Failed to update profile");
+          }
+        } else {
+          console.error("Image upload failed:", imgUploadData.error.message);
+        }
       }
     } catch (error) {
       console.error("Error updating profile", error);
@@ -81,8 +107,6 @@ const page = () => {
     toast.success("Now Update your profile with new data");
     setEditMode(true);
   };
-
-  // user data is
 
   return (
     <div>
@@ -151,6 +175,23 @@ const page = () => {
                   Contact Information
                 </h6>
                 <div className="flex flex-wrap">
+                  <div className="w-full lg:w-12/12 px-4">
+                    <div className="relative w-full mb-3">
+                      <label
+                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        htmlFor="imgUpload"
+                      >
+                        Profile Image
+                      </label>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        onChange={(e) => setImgUpload(e.target.files[0])} // Ensure setImgUpload is accessible here
+                        readOnly={!isEditMode}
+                      />
+                    </div>
+                  </div>
                   <div className="w-full lg:w-12/12 px-4">
                     <div className="relative w-full mb-3">
                       <label
