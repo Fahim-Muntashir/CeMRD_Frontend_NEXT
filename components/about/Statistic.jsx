@@ -22,12 +22,12 @@ const Statistic = () => {
               </svg>
             </div>
             <h6 className="text-4xl font-bold text-deep-purple-accent-400">
-              819
+              15+
             </h6>
-            <p className="mb-2 font-bold text-md">Downloads</p>
+            <p className="mb-2 font-bold text-md">Total Research</p>
             <p className="text-gray-700">
-              It’s something that’s many of the wisest people in history have
-              kept in mind.
+              CeMRD has conducted over 15 research projects, aiming to drive
+              innovation and knowledge advancement.
             </p>
           </div>
           <div className="text-center">
@@ -47,12 +47,12 @@ const Statistic = () => {
               </svg>
             </div>
             <h6 className="text-4xl font-bold text-deep-purple-accent-400">
-              1.3K
+              2805+
             </h6>
-            <p className="mb-2 font-bold text-md">Users</p>
+            <p className="mb-2 font-bold text-md">Youtube</p>
             <p className="text-gray-700">
-              For many men, the acquisition of wealth does not end their
-              troubles, it only changes them.
+              CeMRD has a strong online presence with over 2805 subscribers on
+              YouTube, where valuable insights and research findings are shared.
             </p>
           </div>
           <div className="text-center">
@@ -72,12 +72,12 @@ const Statistic = () => {
               </svg>
             </div>
             <h6 className="text-4xl font-bold text-deep-purple-accent-400">
-              91
+              40+
             </h6>
-            <p className="mb-2 font-bold text-md">Subscribers</p>
+            <p className="mb-2 font-bold text-md">Members</p>
             <p className="text-gray-700">
-              It's a helluva start, being able to recognize what makes you happy
-              today, in this moment.
+              CeMRD has a dedicated team of over 40 members contributing their
+              expertise to various research endeavors.
             </p>
           </div>
           <div className="text-center">
@@ -97,12 +97,12 @@ const Statistic = () => {
               </svg>
             </div>
             <h6 className="text-4xl font-bold text-deep-purple-accent-400">
-              52
+              6+
             </h6>
-            <p className="mb-2 font-bold text-md">Products</p>
+            <p className="mb-2 font-bold text-md">Running Projects</p>
             <p className="text-gray-700">
-              Happiness is when what you think, what you say, and what you do
-              are in harmony.
+              CeMRD is actively managing 6+ ongoing projects, each contributing
+              to advancements in various fields of study.
             </p>
           </div>
         </div>

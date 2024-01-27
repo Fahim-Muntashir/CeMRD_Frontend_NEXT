@@ -8,17 +8,17 @@ const FirstAt = () => {
           <div className="flex flex-col justify-center">
             <div className="max-w-xl mb-6">
               <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                The quick, brown fox
+                The Center for Multidisciplinary Research and Development
                 <br className="hidden md:block" />
-                jumps over{" "}
-                <span className="inline-block text-deep-purple-accent-400">
-                  a lazy dog
-                </span>
+                Driving Innovation and Knowledge Advancement
               </h2>
               <p className="text-base text-gray-700 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae. explicabo.
+                The Center for Multidisciplinary Research and Development
+                (CeMRD), founded by Mr. Mahmudul Hasan on October 8, 2021, is
+                committed to propelling innovation and advancing knowledge. The
+                organization's inception is rooted in a shared passion for
+                exploration and a dedicated commitment to solving complex
+                problems.
               </p>
             </div>
             <div className="grid gap-8 row-gap-8 sm:grid-cols-2">
@@ -39,11 +39,12 @@ const FirstAt = () => {
                   </svg>
                 </div>
                 <h6 className="mb-2 font-semibold leading-5">
-                  I'll be sure to note that in my log
+                  Collaborative Exploration
                 </h6>
                 <p className="text-sm text-gray-900">
-                  Dingy I'm tellin' you rhubaahb Bangah Jo-Jeezly got in a gaum
-                  Powrtland stove up dooryahd
+                  CeMRD actively fosters collaboration, bringing together
+                  diverse expertise to act as a catalyst for groundbreaking
+                  discoveries.
                 </p>
               </div>
               <div>
@@ -63,11 +64,12 @@ const FirstAt = () => {
                   </svg>
                 </div>
                 <h6 className="mb-2 font-semibold leading-5">
-                  Iterative approaches to corporate strategy
+                  Transformative Research
                 </h6>
                 <p className="text-sm text-gray-900">
-                  A slice of heaven. O for awesome, this chocka full cuzzie is
-                  as rip-off as a cracker.
+                  By cultivating a dynamic environment that encourages curiosity
+                  and creativity, CeMRD aspires to shape the future through
+                  transformative research.
                 </p>
               </div>
             </div>

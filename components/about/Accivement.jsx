@@ -7,12 +7,15 @@ const Accivement = () => {
             <div class="max-w-md mx-auto text-center lg:text-left">
               <header>
                 <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">
-                  WE Love to Do Enovation
+                  We Love to Do Enovation
                 </h2>
 
                 <p class="mt-4 text-gray-500">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas
-                  rerum quam amet provident nulla error!
+                  In our extensive research endeavors, we have collaborated with
+                  numerous esteemed organizations, agencies, and even the
+                  government of Bangladesh. Our engagements span a diverse
+                  spectrum, reflecting a commitment to fostering meaningful
+                  partnerships for impactful outcomes.
                 </p>
               </header>
 
@@ -37,15 +40,16 @@ const Accivement = () => {
                 </div>
                 <div class="p-6">
                   <h5 class="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-                    UI/UX Review Check
+                    Ministry of Sciecne and Technology, Bangladesh
                   </h5>
                   <p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-                    The place is close to Barceloneta Beach and bus stop just 2
-                    min by walk and near to "Naviglio" where you can enjoy the
-                    main night life in Barcelona.
+                    Predicting carbon emission using machine learning approaches
+                    between most climates affected countries and most developed
+                    countries: assessing the overtone of the impact of economic
+                    determinants of carbon emission.
                   </p>
                 </div>
-                <div class="p-6 pt-0">
+                {/* <div class="p-6 pt-0">
                   <button
                     class="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                     type="button"
@@ -53,7 +57,7 @@ const Accivement = () => {
                   >
                     Read More
                   </button>
-                </div>
+                </div> */}
               </div>
               <div class="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">
                 <div class="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
@@ -65,15 +69,14 @@ const Accivement = () => {
                 </div>
                 <div class="p-6">
                   <h5 class="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-                    UI/UX Review Check
+                    Team Big Data
                   </h5>
                   <p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-                    The place is close to Barceloneta Beach and bus stop just 2
-                    min by walk and near to "Naviglio" where you can enjoy the
-                    main night life in Barcelona.
+                    Deep Learning based Foreign Currency Exchnage Rate
+                    Prediction
                   </p>
                 </div>
-                <div class="p-6 pt-0">
+                {/* <div class="p-6 pt-0">
                   <button
                     class="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                     type="button"
@@ -81,7 +84,7 @@ const Accivement = () => {
                   >
                     Read More
                   </button>
-                </div>
+                </div> */}
               </div>
             </ul>
           </div>
