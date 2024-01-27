@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "../Shared/Container";
 import CommonHeading from "../Shared/CommonHeading";
+
 const Faq = () => {
   return (
     <Container>
@@ -8,7 +9,7 @@ const Faq = () => {
         <section className="dark:bg-gray-800 dark:text-gray-100">
           <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
             <CommonHeading
-              title={"Frequently Ask Questions"}
+              title={"Frequently Asked Questions"}
               description={
                 "Explore quick and clear answers to commonly asked questions across diverse topics. Simplify your quest for information with our concise and informative Frequently Asked Questions section."
               }
@@ -16,45 +17,50 @@ const Faq = () => {
             <div className="flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 dark:divide-gray-700">
               <details>
                 <summary className="py-2 outline-none cursor-pointer focus:underline">
-                  Optio maiores eligendi molestiae totam dolores similique?
+                  What is the mission of the Center for Multidisciplinary
+                  Research and Development (CeMRD)?
                 </summary>
                 <div className="px-4 pb-4">
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Unde neque in fugiat magni, quas animi enim veritatis
-                    deleniti ex. Impedit.
+                    The mission of CeMRD is to propel innovation and advance
+                    knowledge across various fields. Founded by Mr. Mahmudul
+                    Hasan, the organization is committed to solving complex
+                    problems, fostering collaboration, and contributing valuable
+                    insights that drive societal progress.
                   </p>
                 </div>
               </details>
               <details>
                 <summary className="py-2 outline-none cursor-pointer focus:underline">
-                  Modi dolorem veritatis culpa quos consequuntur beatae itaque
-                  excepturi perspiciatis?
+                  How does CeMRD contribute to the global scientific community?
                 </summary>
                 <div className="px-4 pb-4">
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
-                    aspernatur quae, eos explicabo odit minima libero veniam
-                    similique quibusdam doloribus facilis ipsa accusantium vel
-                    maiores corrupti! Libero voluptate a doloribus?
+                    CeMRD actively contributes to the global scientific
+                    community by engaging in cutting-edge exploration,
+                    multidisciplinary collaboration, and rigorous methodologies.
+                    The organization aims to address pressing challenges, foster
+                    scientific breakthroughs, and enhance global understanding.
                   </p>
                 </div>
               </details>
               <details>
                 <summary className="py-2 outline-none cursor-pointer focus:underline">
-                  Magni reprehenderit possimus debitis?
+                  What are some key focus areas of CeMRD's research initiatives?
                 </summary>
                 <div className="px-4 pb-4 space-y-2">
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
-                    voluptates aspernatur dolores in consequatur doloremque
-                    inventore reprehenderit, consequuntur perspiciatis
-                    architecto.
+                    CeMRD focuses on various research initiatives aimed at
+                    advancing knowledge and innovation. Some key areas include
+                    collaborative exploration, transformative research, and
+                    making a positive impact on society through groundbreaking
+                    discoveries.
                   </p>
                   <p>
-                    Sed consectetur quod tenetur! Voluptatibus culpa incidunt
-                    veritatis velit quasi cupiditate unde eaque! Iure,
-                    voluptatibus autem eaque unde possimus quae.
+                    The organization actively collaborates with the Ministry of
+                    Science and Technology, Bangladesh, and Team Big Data on
+                    projects such as predicting carbon emissions and deep
+                    learning-based foreign currency exchange rate prediction.
                   </p>
                 </div>
               </details>
