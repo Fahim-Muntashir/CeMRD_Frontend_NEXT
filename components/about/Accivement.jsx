@@ -29,7 +29,7 @@ const Accivement = () => {
           </div>
 
           <div class="lg:col-span-2 lg:py-8">
-            <ul class="grid grid-cols-2 gap-4">
+            <ul class="grid lg:grid-cols-2 gap-4 ">
               <div class="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">
                 <div class="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
                   <img
