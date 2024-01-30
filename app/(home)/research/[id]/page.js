@@ -7,7 +7,6 @@ import Container from "../../../../components/Shared/Container";
 const SingleResearch = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
-  console.log(id);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
