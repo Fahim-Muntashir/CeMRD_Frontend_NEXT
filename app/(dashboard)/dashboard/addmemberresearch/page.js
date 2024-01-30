@@ -17,7 +17,8 @@ const MemberResearchComponent = () => {
     // Adjust the URL and payload accordingly
 
     // Example URL:
-    const apiUrl = "http://localhost:5000/api/memberresearch/postresearch";
+    const apiUrl =
+      "https://cemrd-online.vercel.app/api/memberresearch/postresearch";
 
     fetch(apiUrl, {
       method: "POST",

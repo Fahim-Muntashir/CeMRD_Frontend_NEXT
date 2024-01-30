@@ -22,7 +22,7 @@ const page = () => {
       await profileUpdate({
         displayName: name,
       });
-      fetch("http://localhost:5000/api/users/", {
+      fetch("https://cemrd-online.vercel.app/api/users/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

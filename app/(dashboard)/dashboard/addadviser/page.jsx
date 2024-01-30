@@ -13,7 +13,7 @@ const AddAdviser = () => {
   const handleAdviserSubmit = (event) => {
     event.preventDefault();
 
-    fetch("http://localhost:5000/api/adviser/addadviser", {
+    fetch("https://cemrd-online.vercel.app/api/adviser/addadviser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -10,7 +10,7 @@ const Research = () => {
     queryKey: ["researches"],
     queryFn: async () => {
       const res = await fetch(
-        "http://localhost:5000/api/research/allresearch",
+        "https://cemrd-online.vercel.app/api/research/allresearch",
         {
           method: "GET",
         }

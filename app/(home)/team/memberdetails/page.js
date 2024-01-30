@@ -18,7 +18,7 @@ export default function Page() {
   const getMemberProfileData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/member/findmemberbyemail?email=${email}`
+        `https://cemrd-online.vercel.app/api/member/findmemberbyemail?email=${email}`
       );
 
       if (response.ok) {
@@ -44,7 +44,7 @@ export default function Page() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/memberresearch/getresearch/${email}`
+          `https://cemrd-online.vercel.app/api/memberresearch/getresearch/${email}`
         );
         const data = await response.json();
         setResearchData(data.data);

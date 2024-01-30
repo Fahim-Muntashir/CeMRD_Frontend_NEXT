@@ -10,8 +10,8 @@ function ManageUser() {
     queryKey: ["users", searchInput], // Include searchInput in the queryKey
     queryFn: async (query) => {
       const url = query
-        ? `http://localhost:5000/api/users?search=${query}`
-        : "http://localhost:5000/api/users";
+        ? `https://cemrd-online.vercel.app/api/users?search=${query}`
+        : "https://cemrd-online.vercel.app/api/users";
 
       const res = await fetch(url, {
         method: "GET",
@@ -28,12 +28,15 @@ function ManageUser() {
   const makeFaqulty = useMutation({
     queryKey: ["users"],
     mutationFn: (id) => {
-      return fetch(`http://localhost:5000/api/users/makefaqulty/${id}`, {
-        method: "PATCH",
-        headers: {
-          authorization: `${token}`,
-        },
-      });
+      return fetch(
+        `https://cemrd-online.vercel.app/api/users/makefaqulty/${id}`,
+        {
+          method: "PATCH",
+          headers: {
+            authorization: `${token}`,
+          },
+        }
+      );
     },
     onSuccess: () => {
       refetch();
@@ -43,12 +46,15 @@ function ManageUser() {
   const deleteFaqulty = useMutation({
     queryKey: ["users"],
     mutationFn: (id) => {
-      return fetch(`http://localhost:5000/api/users/deletefaqulty/${id}`, {
-        method: "PATCH",
-        headers: {
-          authorization: `${token}`,
-        },
-      });
+      return fetch(
+        `https://cemrd-online.vercel.app/api/users/deletefaqulty/${id}`,
+        {
+          method: "PATCH",
+          headers: {
+            authorization: `${token}`,
+          },
+        }
+      );
     },
     onSuccess: () => {
       refetch();

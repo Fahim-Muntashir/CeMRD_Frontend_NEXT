@@ -10,9 +10,12 @@ const page = () => {
   const { isPending, error, data, refetch } = useQuery({
     queryKey: ["researches"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/api/blog/allblog", {
-        method: "GET",
-      });
+      const res = await fetch(
+        "https://cemrd-online.vercel.app/api/blog/allblog",
+        {
+          method: "GET",
+        }
+      );
       const responseData = await res.json();
       return responseData.data;
     },

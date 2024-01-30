@@ -7,7 +7,7 @@ const ManageResearch = () => {
     queryKey: ["researches"],
     queryFn: async () => {
       const res = await fetch(
-        "http://localhost:5000/api/research/allresearch",
+        "https://cemrd-online.vercel.app/api/research/allresearch",
         {
           method: "GET",
         }
@@ -20,9 +20,12 @@ const ManageResearch = () => {
   const handleDelete = async (id) => {
     try {
       // Fetch the delete API with the provided id
-      await fetch(`http://localhost:5000/api/research/deleteresearch/${id}`, {
-        method: "DELETE",
-      });
+      await fetch(
+        `https://cemrd-online.vercel.app/api/research/deleteresearch/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       // After deletion, refetch the data to update the UI
       refetch();
@@ -34,9 +37,12 @@ const ManageResearch = () => {
   const handleMarkPublished = async (id) => {
     try {
       // Fetch the mark published API with the provided id
-      await fetch(`http://localhost:5000/api/research/markpublished/${id}`, {
-        method: "PUT",
-      });
+      await fetch(
+        `https://cemrd-online.vercel.app/api/research/markpublished/${id}`,
+        {
+          method: "PUT",
+        }
+      );
 
       // After marking as published, refetch the data to update the UI
       refetch();

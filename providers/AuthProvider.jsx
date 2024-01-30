@@ -50,9 +50,12 @@ const AuthProvider = ({ children }) => {
       // get and set token
       if (currentUser) {
         axios
-          .get(`http://localhost:5000/api/auth/jwt/${currentUser.email}`, {
-            email: currentUser.email,
-          })
+          .get(
+            `https://cemrd-online.vercel.app/api/auth/jwt/${currentUser.email}`,
+            {
+              email: currentUser.email,
+            }
+          )
           .then((data) => {
             console.log(data);
             localStorage.setItem("access-token", data.data.data.token);

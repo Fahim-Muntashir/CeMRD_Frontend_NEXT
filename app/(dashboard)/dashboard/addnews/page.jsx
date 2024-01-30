@@ -13,7 +13,7 @@ const AddNews = () => {
   const handleNewsSubmit = (event) => {
     event.preventDefault();
 
-    fetch("http://localhost:5000/api/news/addnews", {
+    fetch("https://cemrd-online.vercel.app/api/news/addnews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
