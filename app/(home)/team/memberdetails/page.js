@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/client";
 import Container from "../../../../components/Shared/Container";
 import Link from "next/link";
 
-export default function Page() {
+function Page() {
   const [researchData, setResearchData] = useState([]);
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
@@ -30,10 +30,10 @@ export default function Page() {
           const data = await response.json();
           console.log(data.data);
           setUserData(data.data);
-          setLinkedin(data.data.linkedin || ""); // Set the linkedin state here
-          setGoogleScholar(data.data.googleScholar || ""); // Set the linkedin state here
-          setAddress(data.data.address || ""); // Set the linkedin state here
-          setAbout(data.data.about || ""); // Set the linkedin state here
+          setLinkedin(data.data.linkedin || "");
+          setGoogleScholar(data.data.googleScholar || "");
+          setAddress(data.data.address || "");
+          setAbout(data.data.about || "");
           console.log("Profile data fetched successfully");
         } else {
           console.error("Failed to fetch profile data");
@@ -49,12 +49,14 @@ export default function Page() {
   }, [email]);
 
   const handleTitleClick = (link) => {
-    window.open(link, "_blank");
+    if (typeof window !== "undefined") {
+      window.open(link, "_blank");
+    }
   };
 
   return (
     <Container>
-      <div class="">
+      <div className="">
         <div class="p-8 bg-white shadow mt-24">
           {" "}
           <div class="grid grid-cols-1 md:grid-cols-3">
@@ -116,7 +118,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-
       <div className="mt-32">
         <h1 className="text-xl font-bold text-center">Researches</h1>
         {researchData.map((item, index) => (
@@ -134,3 +135,4 @@ export default function Page() {
     </Container>
   );
 }
+export default Page;
