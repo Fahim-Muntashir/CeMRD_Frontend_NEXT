@@ -1,11 +1,17 @@
-"use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMutation, useQuery } from "react-query";
 
 function ManageUser() {
-  const token =
-    typeof window !== "undefined" ? localStorage.getItem("access-token") : null;
+  const [token, setToken] = useState(null);
   const [searchInput, setSearchInput] = useState("");
+
+  useEffect(() => {
+    // Check if running on the client side before accessing localStorage
+    if (typeof window !== "undefined") {
+      const storedToken = localStorage.getItem("access-token");
+      setToken(storedToken);
+    }
+  }, []);
 
   const { isPending, error, data, refetch } = useQuery({
     queryKey: ["users", searchInput], // Include searchInput in the queryKey
