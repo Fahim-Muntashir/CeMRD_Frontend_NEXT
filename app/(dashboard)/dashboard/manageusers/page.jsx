@@ -3,7 +3,8 @@ import { useState } from "react";
 import { useMutation, useQuery } from "react-query";
 
 function ManageUser() {
-  const token = localStorage.getItem("access-token");
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("access-token") : null;
   const [searchInput, setSearchInput] = useState("");
 
   const { isPending, error, data, refetch } = useQuery({

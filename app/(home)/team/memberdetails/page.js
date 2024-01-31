@@ -1,4 +1,3 @@
-"use client";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Container from "../../../../components/Shared/Container";
@@ -9,61 +8,49 @@ export default function Page() {
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
 
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState({
+    imgUrl: "",
+    displayName: "",
+    about: "",
+  });
+
   const [linkedin, setLinkedin] = useState("");
   const [googleScholar, setGoogleScholar] = useState("");
   const [address, setAddress] = useState("");
   const [about, setAbout] = useState("");
 
-  const getMemberProfileData = async () => {
-    try {
-      const response = await fetch(
-        `https://cemrd-online.vercel.app/api/member/findmemberbyemail?email=${email}`
-      );
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data.data);
-        setUserData(data.data);
-        setLinkedin(data.data.linkedin); // Set the linkedin state here
-        setGoogleScholar(data.data.googleScholar); // Set the linkedin state here
-        setAddress(data.data.address); // Set the linkedin state here
-        setAbout(data.data.about); // Set the linkedin state here
-        console.log("Profile data fetched successfully");
-      } else {
-        console.error("Failed to fetch profile data");
-      }
-    } catch (error) {
-      console.error("Error fetching profile data", error);
-    }
-  };
-
-  getMemberProfileData();
-  console.log("data is", linkedin);
   useEffect(() => {
-    const fetchData = async () => {
+    const getMemberProfileData = async () => {
       try {
         const response = await fetch(
-          `https://cemrd-online.vercel.app/api/memberresearch/getresearch/${email}`
+          `https://cemrd-online.vercel.app/api/member/findmemberbyemail?email=${email}`
         );
-        const data = await response.json();
-        setResearchData(data.data);
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log(data.data);
+          setUserData(data.data);
+          setLinkedin(data.data.linkedin || ""); // Set the linkedin state here
+          setGoogleScholar(data.data.googleScholar || ""); // Set the linkedin state here
+          setAddress(data.data.address || ""); // Set the linkedin state here
+          setAbout(data.data.about || ""); // Set the linkedin state here
+          console.log("Profile data fetched successfully");
+        } else {
+          console.error("Failed to fetch profile data");
+        }
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching profile data", error);
       }
     };
 
     if (email) {
-      fetchData();
+      getMemberProfileData();
     }
   }, [email]);
 
   const handleTitleClick = (link) => {
     window.open(link, "_blank");
   };
-
-  //cl
-  console.log(userData);
 
   return (
     <Container>
